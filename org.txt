@@ -1,0 +1,7 @@
+project/
+├── app.py               # Main driver
+├── layouts.py           # All HTML layouts
+├── callbacks.py         # Dash callback functions
+├── charts.py            # Visualization components
+├── reports.py           # PDF generation logic
+└── api.py               # Gemini AI integration
