@@ -5,8 +5,6 @@ def create_navbar():
         children=[
             html.A("Dashboard", href="/", className="nav-button"),
             html.A("Life Analysis", href="/life-analysis", className="nav-button"),
-            html.A("Reports", href="/reports", className="nav-button"),
-            html.A("Chatbot", href="/chatbot", className="nav-button"),
         ],
         className="navbar"
     )
@@ -41,9 +39,9 @@ def create_layout(relaxed_df):
 
         html.Div([
             html.Label("Chatbot:", style={"color": "#fff"}),
-            dcc.Input(id="chat-input", type="text", placeholder="Ask a question...", style={"width": "70%"}),
+            dcc.Input(id="chat-input", type="text", placeholder="Ask a question...", style={"width": "50%"}),
             html.Button("Submit", id="chat-submit", n_clicks=0, style={"margin-left": "10px"}),
-            html.Div(id="chat-response", style={"color": "#fff", "margin-top": "10px"})
+            html.Div(id="chat-response", style={"color": "#fff", "margin-top": "40px","margin-bottom": "40px"})
         ], style={"textAlign": "center"}),
 
         html.Hr(),
@@ -55,4 +53,4 @@ def create_layout(relaxed_df):
             html.Button("Download PDF", id="download-pdf-btn"),
             dcc.Download(id="pdf-download")
         ], style={"textAlign": "center", "margin-top": "20px"})
-    ], style={"backgroundColor": "#2E1A47", "padding": "20px"})
+    ], style={"backgroundColor": "#2E1A47", "padding": "20px","margin":"-8px"})
