@@ -183,7 +183,7 @@ def create_layout(relaxed_df):
                         "Generate Report",
                         id="generate-report-btn",
                         style={
-                            "background-color": "#5A73EE",
+                            "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
                             "color": "#fff",
                             "border": "none",
                             "padding": "10px 20px",
