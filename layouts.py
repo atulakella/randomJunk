@@ -33,25 +33,35 @@ def create_navbar():
             html.Div(
                 style={"display": "flex", "gap": "20px", "align-items": "center"},
                 children=[
-                    html.A("Dashboard", href="/dashboard", style={"color": "#231630", "text-decoration": "none", "padding": "5px 10px", "border-radius": "5px", "transition": "background-color 0.3s, transform 0.3s"}),
-                    html.A("Live Analysis", href="/live-analysis", style={"color": "#231630", "text-decoration": "none", "padding": "5px 10px", "border-radius": "5px", "transition": "background-color 0.3s, transform 0.3s"}),
+                    html.A(
+                        "Dashboard",
+                        href="/dashboard",
+                        style={
+                            "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
+                            "color": "#ffffff",
+                            "text-decoration": "none",
+                            "padding": "10px 20px",
+                            "border-radius": "15px",  # Rounded edges
+                            "transition": "background-color 0.3s, transform 0.3s",
+                        }
+                    ),
+                    html.A(
+                        "Live Analysis",
+                        href="/live-analysis",
+                        style={
+                            "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
+                            "color": "#ffffff",
+                            "text-decoration": "none",
+                            "padding": "10px 20px",
+                            "border-radius": "15px",  # Rounded edges
+                            "transition": "background-color 0.3s, transform 0.3s",
+                        }
+                    ),
                 ]
             ),
-            # Login button
-            html.Button(
-                "Login",
-                style={
-                    "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
-                    "color": "#ffffff",
-                    "border": "none",
-                    "padding": "10px 20px",
-                    "border-radius": "5px",
-                    "cursor": "pointer",
-                    "transition": "background 0.3s, transform 0.3s",
-                }
-            )
         ]
     )
+
 # Define the layout
 def create_layout(relaxed_df):
     return html.Div(
@@ -81,31 +91,89 @@ def create_layout(relaxed_df):
                 )
             ], style={"textAlign": "center"}),
 
-            html.Div([
-                dcc.Graph(id="frequency-bar-chart", style={"width": "50%", "display": "inline-block"}),
-                dcc.Graph(id="frequency-pie-chart", style={"width": "50%", "display": "inline-block"})
-            ], style={"display": "flex"}),
-
-            html.Hr(),
+            # Wrapper for both graphs with enhanced box shadow
+            html.Div(
+                style={
+                    "display": "flex",
+                    "justify-content": "center",
+                    "gap": "20px",
+                    "margin": "20px 0",
+                },
+                children=[
+                    # Division for the bar chart
+                    html.Div(
+                        style={
+                            "background-color": "#2E1A47",  # White background for contrast
+                            "padding": "20px",
+                            "border-radius": "10px",
+                            "box-shadow": "0 8px 16px rgba(0, 0, 0, 0.3)",  # Stronger shadow
+                            "width": "48%",
+                        },
+                        children=[
+                            dcc.Graph(id="frequency-bar-chart")
+                        ]
+                    ),
+                    # Division for the pie chart
+                    html.Div(
+                        style={
+                            "background-color": "#2E1A47",  # White background for contrast
+                            "padding": "20px",
+                            "border-radius": "10px",
+                            "box-shadow": "0 8px 16px rgba(0, 0, 0, 0.3)",  # Stronger shadow
+                            "width": "48%",
+                        },
+                        children=[
+                            dcc.Graph(id="frequency-pie-chart")
+                        ]
+                    ),
+                ]
+            ),
 
             # Updated Chatbot section with logo aligned beside the search box
             html.Div(
                 style={"display": "flex", "alignItems": "center", "justifyContent": "center", "margin-bottom": "20px"},
                 children=[
-                    html.Img(src="assets/CHATBBOT.png", style={"height": "60px", "margin-right": "10px"}),  # Chatbot logo with increased size
+                    # Chatbot image (larger size)
+                    html.Img(src="assets/CHATBBOT.png", style={"height": "100px", "margin-right": "20px"}),  # Increased size
                     html.Div(
                         style={"display": "flex", "alignItems": "center"},
                         children=[
-                            dcc.Input(id="chat-input", type="text", placeholder="Ask a question...", style={"width": "300px", "margin-right": "10px"}),
-                            html.Button("Submit", id="chat-submit", n_clicks=0),
+                            # Input field (larger and rounded corners)
+                            dcc.Input(
+                                id="chat-input",
+                                type="text",
+                                placeholder="Ask a question...",
+                                style={
+                                    "width": "70%",  # Increased width
+                                    "margin-right": "10px",
+                                    "padding": "10px 15px",  # Increased padding
+                                    "border-radius": "25px",  # Rounded corners
+                                    "border": "1px solid #ccc",  # Subtle border
+                                    "font-size": "1em",  # Larger font size
+                                }
+                            ),
+                            # Submit button (gradient background and rounded corners)
+                            html.Button(
+                                "Submit",
+                                id="chat-submit",
+                                n_clicks=0,
+                                style={
+                                    "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",  # Gradient background
+                                    "color": "#ffffff",
+                                    "border": "none",
+                                    "padding": "10px 20px",
+                                    "border-radius": "25px",  # Rounded corners
+                                    "cursor": "pointer",
+                                    "font-size": "1em",  # Larger font size
+                                    "transition": "background-color 0.3s, transform 0.3s",
+                                }
+                            ),
                         ]
                     )
                 ]
             ),
 
             html.Div(id="chat-response", style={"color": "#fff", "textAlign": "center", "margin-top": "20px", "margin-bottom": "40px"}),
-
-            html.Hr(),
 
             # Generate Report section
             html.Div(
@@ -126,7 +194,9 @@ def create_layout(relaxed_df):
                     ),
                     html.Div(
                         id="report-form",
-                        style={"display": "none", "margin-top": "10px"},
+                        style={
+                            "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
+                            "display": "none", "margin-top": "10px"},
                         children=[
                             dcc.Input(id="user-name", type="text", placeholder="Enter your name", style={"margin-right": "10px", "padding": "5px"}),
                             dcc.Input(id="user-age", type="number", placeholder="Enter your age", style={"margin-right": "10px", "padding": "5px"}),
