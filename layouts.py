@@ -25,7 +25,7 @@ def create_navbar():
             html.Div(
                 style={"display": "flex", "align-items": "center"},
                 children=[
-                    html.Img(src="assets/Brain.png", style={"height": "40px", "margin-right": "10px"}),  # Logo
+                    html.Img(src="assets/logo.png", style={"height": "40px", "margin-right": "10px"}),  # Logo
                     html.Div("Cognilift", style={"font-size": "1.5em", "font-weight": "bold", "color": "#F84BAE"}),  # Heading
                 ]
             ),
@@ -34,7 +34,7 @@ def create_navbar():
                 style={"display": "flex", "gap": "20px", "align-items": "center"},
                 children=[
                     html.A(
-                        "Dashboard",
+                        "Home",
                         href="/dashboard",
                         style={
                             "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
@@ -47,7 +47,7 @@ def create_navbar():
                     ),
                     html.A(
                         "Live Analysis",
-                        href="/live-analysis",
+                        href="http://127.0.0.1:5000",
                         style={
                             "background": "linear-gradient(135deg, #F84BAE, #5A73EE)",
                             "color": "#ffffff",
