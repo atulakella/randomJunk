@@ -75,7 +75,7 @@ def create_layout(relaxed_df):
             create_navbar(),  # Add the navbar here
 
             html.H1("EEG Frequency Dashboard", style={"textAlign": "center", "color": "#fff"}),
-
+            html.Div(style={"height": "100px"}),  # Spacer div
             html.Div([
                 html.Label("Select EEG State:", style={"color": "#fff"}),
                 dcc.Dropdown(
@@ -87,7 +87,16 @@ def create_layout(relaxed_df):
                     ],
                     value="Relaxed",
                     clearable=False,
-                    style={"width": "50%", "margin-bottom": "20px"}
+                    style={
+                        "width": "300px",  # Fixed width for consistent sizing
+                        "margin": "0px auto auto",  # Centered with bottom margin
+                        "color": "#2E1A47",  # Dark purple text for contrast
+                        "backgroundColor": "#ffffff",
+                        "border": "1px solid #F84BAE",  # Accent border
+                        "borderRadius": "5px",
+                        "padding": "0px 0px",  # Internal spacing
+                        "fontSize": "16px"  # Larger text
+                    }
                 )
             ], style={"textAlign": "center"}),
 
