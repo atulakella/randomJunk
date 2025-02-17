@@ -26,8 +26,8 @@ def generate_gemini_response(prompt):
 # Function to generate PDF report
 def generate_pdf(name, age, relaxed_freq, stressed_freq, active_freq):
     # Read the template PDFs
-    template_page1_path = "C:/Users/ROHITH NARAYANAN/OneDrive/Desktop/PREVIOUS SEMS/C PROGRAMMING ASSIGNMENTS/ECS AND OTHER PROJECTS/COGNILIFT/Cognilift.ai template.pdf"
-    template_page2_path = "C:/Users/ROHITH NARAYANAN/OneDrive/Desktop/PREVIOUS SEMS/C PROGRAMMING ASSIGNMENTS/ECS AND OTHER PROJECTS/COGNILIFT/Cognilift.ai page 2.pdf"
+    template_page1_path = "Cognilift.ai template.pdf"
+    template_page2_path = "Cognilift.ai page 2.pdf"
     
     template_page1 = PdfReader(template_page1_path)
     template_page2 = PdfReader(template_page2_path)
